@@ -33,6 +33,7 @@ body {
   width: 50vw;
   max-height: var(--max-height);
   max-width: var(--max-width);
+  box-shadow: 0 0 3vw #0cdcca;
 }
 
 .calculator-display {

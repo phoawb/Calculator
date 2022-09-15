@@ -25,7 +25,10 @@ body {
   align-items: center;
   flex-direction: column;
   background-color: #252732;
+  background-color: #181921;
+  background-color: #1b1c21;
   border: 2px solid #0bdcca;
+  border-radius: 4%;
   height: 70vw;
   width: 50vw;
   max-height: var(--max-height);
@@ -34,10 +37,11 @@ body {
 
 .calculator-display {
   background-color: #0cdcca;
-  border: 5px solid #14726b;
+  border: 0.4vw solid #14726b;
+  border-radius: 1vw;
   width: 75%;
-  height: 25%;
-  margin-top: 15%;
+  height: 20%;
+  margin-top: 12%;
   margin-bottom: 5%;
 }
 
@@ -46,16 +50,63 @@ body {
   grid-template-columns: 1fr 1fr 1fr 1fr;
   flex-direction: row;
   width: 75%;
-  height: 55%;
-  gap: 3%;
+  height: 60%;
+  gap: 2%;
 }
 
 .button {
   font-family: Nostromo;
-  font-size: 200%;
+  font-size: 2.5vw;
+  border: 0.14vw solid #3e424f;
+  border-radius: 0.6vw;
+  color: #0cdcca;
+  background-color: #252732;
+}
+
+@media only screen and (max-width: 280px) {
+  .button {
+    font-size: 2vw;
+  }
+}
+
+@media only screen and (max-width: 210px) {
+  .button {
+    font-size: 0.6vw;
+  }
+}
+
+/* Individual button stylings */
+
+#ac {
+  color: red;
+}
+
+#c {
+  color: #e35b0b;
+}
+
+#modulo {
+  color: yellow;
+}
+
+#divide {
+  color: #0585e4;
+}
+
+#multiply {
+  color: #e44595;
+}
+
+#subtract {
+  color: #8c32fe;
+}
+
+#add {
+  color: white;
 }
 
 #equal {
   grid-column: span 2;
+  color: chartreuse;
 }
 /* number color for display text: #085a53 */

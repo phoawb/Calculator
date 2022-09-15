@@ -1,3 +1,8 @@
+@font-face {
+  font-family: Nostromo;
+  src: url(NostromoRough-Black.otf) format('opentype');
+}
+
 :root {
   --max-height: 700px;
   --max-width: 500px;
@@ -15,13 +20,42 @@ body {
 }
 
 .calculator {
-  /* background-color: #3c4143; */
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
   background-color: #252732;
-  border: 2px solid blueviolet;
+  border: 2px solid #0bdcca;
   height: 70vw;
   width: 50vw;
   max-height: var(--max-height);
   max-width: var(--max-width);
 }
 
-/* number color for future use: #085a53 */
+.calculator-display {
+  background-color: #0cdcca;
+  border: 5px solid #14726b;
+  width: 75%;
+  height: 25%;
+  margin-top: 15%;
+  margin-bottom: 5%;
+}
+
+.button-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  flex-direction: row;
+  width: 75%;
+  height: 55%;
+  gap: 3%;
+}
+
+.button {
+  font-family: Nostromo;
+  font-size: 200%;
+}
+
+#equal {
+  grid-column: span 2;
+}
+/* number color for display text: #085a53 */

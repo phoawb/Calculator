@@ -1,4 +1,27 @@
-body {
-  /* background-color: #202125; */
-  background-color: #292929;
+:root {
+  --max-height: 700px;
+  --max-width: 500px;
 }
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+  /* background-color: #202125; */
+  /* background-color: #292929; */
+  background-color: #121224;
+}
+
+.calculator {
+  /* background-color: #3c4143; */
+  background-color: #252732;
+  border: 2px solid blueviolet;
+  height: 70vw;
+  width: 50vw;
+  max-height: var(--max-height);
+  max-width: var(--max-width);
+}
+
+/* number color for future use: #085a53 */

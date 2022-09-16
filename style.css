@@ -70,6 +70,10 @@ body {
   }
 }
 
+.button:hover {
+  border: 0.14vw solid #0cdcca;
+}
+
 @media only screen and (max-width: 210px) {
   .button {
     font-size: 0.6vw;
@@ -82,32 +86,64 @@ body {
   color: red;
 }
 
+#ac:hover {
+  border: 0.14vw solid red;
+}
+
 #c {
   color: #e35b0b;
+}
+
+#c:hover {
+  border: 0.14vw solid #e35b0b;
 }
 
 #modulo {
   color: yellow;
 }
 
+#modulo:hover {
+  border: 0.14vw solid yellow;
+}
+
 #divide {
   color: #0585e4;
+}
+
+#divide:hover {
+  border: 0.14vw solid #0585e4;
 }
 
 #multiply {
   color: #e44595;
 }
 
+#multiply:hover {
+  border: 0.14vw solid #e44595;
+}
+
 #subtract {
   color: #8c32fe;
+}
+
+#subtract:hover {
+  border: 0.14vw solid #8c32fe;
 }
 
 #add {
   color: white;
 }
 
+#add:hover {
+  border: 0.14vw solid white;
+}
+
 #equal {
   grid-column: span 2;
   color: chartreuse;
+}
+
+#equal:hover {
+  border: 0.14vw solid chartreuse;
 }
 /* number color for display text: #085a53 */

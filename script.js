@@ -65,3 +65,15 @@ AC_BUTTON.addEventListener('click', () => {
   DISPLAY_VALUES.operator = '';
   setCalculatorDisplayValue();
 });
+
+C_BUTTON.addEventListener('click', () => {
+  if (!DISPLAY_VALUES.operator) {
+    if (DISPLAY_VALUES.value1) {
+      DISPLAY_VALUES.value1 = DISPLAY_VALUES.value1.slice(0, -1);
+    }
+  } else if (!DISPLAY_VALUES.value2) DISPLAY_VALUES.operator = '';
+  else {
+    DISPLAY_VALUES.value2 = DISPLAY_VALUES.value2.slice(0, -1);
+  }
+  setCalculatorDisplayValue();
+});

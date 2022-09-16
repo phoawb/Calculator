@@ -6,6 +6,7 @@ const DISPLAY_VALUES = {
 
 //Global DOM elements
 const NUMBER_BUTTONS = [...document.getElementsByClassName('number')];
+const OPERATION_BUTTONS = [...document.getElementsByClassName('operation')];
 const CALCULATOR_DISPLAY = document.querySelector('.calculator-display');
 if (!CALCULATOR_DISPLAY) throw new Error('Could not find calculator display!');
 
@@ -42,11 +43,19 @@ const numberClick = (e) => {
 
 // Event listeners
 NUMBER_BUTTONS.forEach((n) => {
-  n.addEventListener('click', (e) => {
+  n.addEventListener('click', () => {
     let value = DISPLAY_VALUES.operator ? 'value2' : 'value1';
     DISPLAY_VALUES[value] += n.textContent;
     console.log('display value is: ', DISPLAY_VALUES[value]);
     CALCULATOR_DISPLAY.textContent = `${DISPLAY_VALUES.value1} ${DISPLAY_VALUES.operator} ${DISPLAY_VALUES.value2}`;
     console.log('does this register?');
+  });
+});
+
+OPERATION_BUTTONS.forEach((o) => {
+  o.addEventListener('click', () => {
+    if (!DISPLAY_VALUES.value1) return;
+    DISPLAY_VALUES.operator = o.textContent;
+    CALCULATOR_DISPLAY.textContent = `${DISPLAY_VALUES.value1} ${DISPLAY_VALUES.operator} ${DISPLAY_VALUES.value2}`;
   });
 });

@@ -75,6 +75,12 @@ body {
   box-shadow: 0 0 1.8vw #0cdcca;
 }
 
+.button:active {
+  text-shadow: #fff 0px 0px 5px, #fff 0px 0px 10px, #fff 0px 0px 15px,
+    #0cdcca 0px 0px 20px, #0cdcca 0px 0px 30px, #0cdcca 0px 0px 40px,
+    #0cdcca 0px 0px 50px, #0cdcca 0px 0px 75px;
+}
+
 @media only screen and (max-width: 210px) {
   .button {
     font-size: 0.6vw;
@@ -92,6 +98,12 @@ body {
   box-shadow: 0 0 1.8vw red;
 }
 
+#ac:active {
+  text-shadow: #fff 0px 0px 5px, #fff 0px 0px 10px, #fff 0px 0px 15px,
+    red 0px 0px 20px, red 0px 0px 30px, red 0px 0px 40px, red 0px 0px 50px,
+    red 0px 0px 75px;
+}
+
 #c {
   color: #e35b0b;
 }
@@ -99,6 +111,12 @@ body {
 #c:hover {
   border: 0.14vw solid #e35b0b;
   box-shadow: 0 0 1.8vw #e35b0b;
+}
+
+#c:active {
+  text-shadow: #fff 0px 0px 5px, #fff 0px 0px 10px, #fff 0px 0px 15px,
+    #e35b0b 0px 0px 20px, #e35b0b 0px 0px 30px, #e35b0b 0px 0px 40px,
+    #e35b0b 0px 0px 50px, #e35b0b 0px 0px 75px;
 }
 
 #modulo {
@@ -110,6 +128,12 @@ body {
   box-shadow: 0 0 1.8vw yellow;
 }
 
+#modulo:active {
+  text-shadow: #fff 0px 0px 5px, #fff 0px 0px 10px, #fff 0px 0px 15px,
+    yellow 0px 0px 20px, yellow 0px 0px 30px, yellow 0px 0px 40px,
+    yellow 0px 0px 50px, yellow 0px 0px 75px;
+}
+
 #divide {
   color: #0585e4;
 }
@@ -117,6 +141,12 @@ body {
 #divide:hover {
   border: 0.14vw solid #0585e4;
   box-shadow: 0 0 1.8vw #0585e4;
+}
+
+#divide:active {
+  text-shadow: #fff 0px 0px 5px, #fff 0px 0px 10px, #fff 0px 0px 15px,
+    #0585e4 0px 0px 20px, #0585e4 0px 0px 30px, #0585e4 0px 0px 40px,
+    #0585e4 0px 0px 50px, #0585e4 0px 0px 75px;
 }
 
 #multiply {
@@ -128,6 +158,12 @@ body {
   box-shadow: 0 0 1.8vw #e44595;
 }
 
+#multiply:active {
+  text-shadow: #fff 0px 0px 5px, #fff 0px 0px 10px, #fff 0px 0px 15px,
+    #e44595 0px 0px 20px, #e44595 0px 0px 30px, #e44595 0px 0px 40px,
+    #e44595 0px 0px 50px, #e44595 0px 0px 75px;
+}
+
 #subtract {
   color: #8c32fe;
 }
@@ -135,6 +171,12 @@ body {
 #subtract:hover {
   border: 0.14vw solid #8c32fe;
   box-shadow: 0 0 1.8vw #8c32fe;
+}
+
+#subtract:active {
+  text-shadow: #fff 0px 0px 5px, #fff 0px 0px 10px, #fff 0px 0px 15px,
+    #8c32fe 0px 0px 20px, #8c32fe 0px 0px 30px, #8c32fe 0px 0px 40px,
+    #8c32fe 0px 0px 50px, #8c32fe 0px 0px 75px;
 }
 
 #add {
@@ -146,6 +188,12 @@ body {
   box-shadow: 0 0 1.8vw white;
 }
 
+#add:active {
+  text-shadow: #fff 0px 0px 5px, #fff 0px 0px 10px, #fff 0px 0px 15px,
+    white 0px 0px 20px, white 0px 0px 30px, white 0px 0px 40px,
+    white 0px 0px 50px, white 0px 0px 75px;
+}
+
 #equal {
   grid-column: span 2;
   color: chartreuse;
@@ -154,5 +202,11 @@ body {
 #equal:hover {
   border: 0.14vw solid chartreuse;
   box-shadow: 0 0 1.8vw chartreuse;
+}
+
+#equal:active {
+  text-shadow: #fff 0px 0px 5px, #fff 0px 0px 10px, #fff 0px 0px 15px,
+    chartreuse 0px 0px 20px, chartreuse 0px 0px 30px, chartreuse 0px 0px 40px,
+    chartreuse 0px 0px 50px, chartreuse 0px 0px 75px;
 }
 /* number color for display text: #085a53 */

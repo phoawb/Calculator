@@ -47,9 +47,7 @@ NUMBER_BUTTONS.forEach((n) => {
   n.addEventListener('click', () => {
     let value = DISPLAY_VALUES.operator ? 'value2' : 'value1';
     DISPLAY_VALUES[value] += n.textContent;
-    console.log('display value is: ', DISPLAY_VALUES[value]);
     setCalculatorDisplayValue();
-    console.log('does this register?');
   });
 });
 

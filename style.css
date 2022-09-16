@@ -72,6 +72,7 @@ body {
 
 .button:hover {
   border: 0.14vw solid #0cdcca;
+  box-shadow: 0 0 1.8vw #0cdcca;
 }
 
 @media only screen and (max-width: 210px) {
@@ -88,6 +89,7 @@ body {
 
 #ac:hover {
   border: 0.14vw solid red;
+  box-shadow: 0 0 1.8vw red;
 }
 
 #c {
@@ -96,6 +98,7 @@ body {
 
 #c:hover {
   border: 0.14vw solid #e35b0b;
+  box-shadow: 0 0 1.8vw #e35b0b;
 }
 
 #modulo {
@@ -104,6 +107,7 @@ body {
 
 #modulo:hover {
   border: 0.14vw solid yellow;
+  box-shadow: 0 0 1.8vw yellow;
 }
 
 #divide {
@@ -112,6 +116,7 @@ body {
 
 #divide:hover {
   border: 0.14vw solid #0585e4;
+  box-shadow: 0 0 1.8vw #0585e4;
 }
 
 #multiply {
@@ -120,6 +125,7 @@ body {
 
 #multiply:hover {
   border: 0.14vw solid #e44595;
+  box-shadow: 0 0 1.8vw #e44595;
 }
 
 #subtract {
@@ -128,6 +134,7 @@ body {
 
 #subtract:hover {
   border: 0.14vw solid #8c32fe;
+  box-shadow: 0 0 1.8vw #8c32fe;
 }
 
 #add {
@@ -136,6 +143,7 @@ body {
 
 #add:hover {
   border: 0.14vw solid white;
+  box-shadow: 0 0 1.8vw white;
 }
 
 #equal {
@@ -145,5 +153,6 @@ body {
 
 #equal:hover {
   border: 0.14vw solid chartreuse;
+  box-shadow: 0 0 1.8vw chartreuse;
 }
 /* number color for display text: #085a53 */

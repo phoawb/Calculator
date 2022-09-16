@@ -45,7 +45,7 @@ const setCalculatorDisplayValue = () =>
 // Event listeners
 NUMBER_BUTTONS.forEach((n) => {
   n.addEventListener('click', () => {
-    let value = DISPLAY_VALUES.operator ? 'value2' : 'value1';
+    const value = DISPLAY_VALUES.operator ? 'value2' : 'value1';
     DISPLAY_VALUES[value] += n.textContent;
     setCalculatorDisplayValue();
   });
@@ -75,5 +75,11 @@ C_BUTTON.addEventListener('click', () => {
   else {
     DISPLAY_VALUES.value2 = DISPLAY_VALUES.value2.slice(0, -1);
   }
+  setCalculatorDisplayValue();
+});
+
+DOT_BUTTON.addEventListener('click', () => {
+  const value = DISPLAY_VALUES.operator ? 'value2' : 'value1';
+  if (!DISPLAY_VALUES[value].includes('.')) DISPLAY_VALUES[value] += '.';
   setCalculatorDisplayValue();
 });

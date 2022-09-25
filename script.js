@@ -11,6 +11,11 @@ const AC_BUTTON = document.getElementById('ac');
 const C_BUTTON = document.getElementById('c');
 const EQUAL_BUTTON = document.getElementById('equal');
 const DOT_BUTTON = document.getElementById('dot');
+const CALCULATION = document.getElementById('calculation');
+if (!CALCULATION)
+  throw new Error('Could not find calculation part of the display!');
+const ANSWER = document.getElementById('answer');
+if (!ANSWER) throw new Error('Could not find answer part of the dispay!');
 const CALCULATOR_DISPLAY = document.querySelector('.calculator-display');
 if (!CALCULATOR_DISPLAY) throw new Error('Could not find calculator display!');
 
@@ -42,8 +47,10 @@ const operate = () => {
   );
 };
 
-const setCalculatorDisplayValue = (ans = '') =>
-  (CALCULATOR_DISPLAY.textContent = `${DISPLAY_VALUES.value1} ${DISPLAY_VALUES.operator} ${DISPLAY_VALUES.value2}`);
+const setCalculation = (ans = '') =>
+  (CALCULATION.textContent = `${DISPLAY_VALUES.value1} ${DISPLAY_VALUES.operator} ${DISPLAY_VALUES.value2}`);
+
+const setAnswer = (ans) => (ANSWER.textContent = `${ans}`);
 
 const isCompleteDisplay = () =>
   DISPLAY_VALUES.value1 && DISPLAY_VALUES.operator && DISPLAY_VALUES.value2
@@ -55,7 +62,7 @@ NUMBER_BUTTONS.forEach((n) => {
   n.addEventListener('click', () => {
     const value = DISPLAY_VALUES.operator ? 'value2' : 'value1';
     DISPLAY_VALUES[value] += n.textContent;
-    setCalculatorDisplayValue();
+    setCalculation();
   });
 });
 
@@ -63,7 +70,7 @@ OPERATION_BUTTONS.forEach((o) => {
   o.addEventListener('click', () => {
     if (!DISPLAY_VALUES.value1) return;
     DISPLAY_VALUES.operator = o.textContent;
-    setCalculatorDisplayValue();
+    setCalculation();
   });
 });
 
@@ -71,10 +78,13 @@ const clearScreen = () => {
   DISPLAY_VALUES.value1 = '';
   DISPLAY_VALUES.value2 = '';
   DISPLAY_VALUES.operator = '';
-  setCalculatorDisplayValue();
+  setCalculation();
 };
 
-AC_BUTTON.addEventListener('click', clearScreen);
+AC_BUTTON.addEventListener('click', () => {
+  clearScreen();
+  setAnswer('');
+});
 
 C_BUTTON.addEventListener('click', () => {
   if (!DISPLAY_VALUES.operator) {
@@ -85,18 +95,17 @@ C_BUTTON.addEventListener('click', () => {
   else {
     DISPLAY_VALUES.value2 = DISPLAY_VALUES.value2.slice(0, -1);
   }
-  setCalculatorDisplayValue();
+  setCalculation();
 });
 
 DOT_BUTTON.addEventListener('click', () => {
   const value = DISPLAY_VALUES.operator ? 'value2' : 'value1';
   if (!DISPLAY_VALUES[value].includes('.')) DISPLAY_VALUES[value] += '.';
-  setCalculatorDisplayValue();
+  setCalculation();
 });
 
 EQUAL_BUTTON.addEventListener('click', () => {
   if (!isCompleteDisplay()) return;
-
-  const ans = operate();
+  setAnswer(operate());
   clearScreen();
 });

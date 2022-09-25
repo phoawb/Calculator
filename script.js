@@ -21,7 +21,7 @@ if (!CALCULATOR_DISPLAY) throw new Error('Could not find calculator display!');
 
 const add = (x, y) => x + y;
 
-const subract = (x, y) => x - y;
+const subtract = (x, y) => x - y;
 
 const multiply = (x, y) => x * y;
 
@@ -34,13 +34,14 @@ const modulo = (x, y) => x % y;
 
 const OPERATION_OBJ = {
   '+': add,
-  '-': subract,
-  '*': multiply,
+  '-': subtract,
+  x: multiply,
   '/': divide,
   '%': modulo,
 };
 
 const operate = (operator, x, y) => {
+  console.log(operator);
   return OPERATION_OBJ[operator](parseFloat(x), parseFloat(y));
 };
 
@@ -66,6 +67,10 @@ NUMBER_BUTTONS.forEach((n) => {
 OPERATION_BUTTONS.forEach((o) => {
   o.addEventListener('click', () => {
     if (!DISPLAY_VALUES.value1) return;
+    if (isCompleteDisplay()) {
+      evaluate();
+      DISPLAY_VALUES.value1 = ANSWER.innerText;
+    }
     DISPLAY_VALUES.operator = o.textContent;
     setCalculation();
   });
@@ -101,8 +106,7 @@ DOT_BUTTON.addEventListener('click', () => {
   setCalculation();
 });
 
-EQUAL_BUTTON.addEventListener('click', () => {
-  if (!isCompleteDisplay()) return;
+const evaluate = () => {
   setAnswer(
     operate(
       DISPLAY_VALUES.operator,
@@ -111,4 +115,9 @@ EQUAL_BUTTON.addEventListener('click', () => {
     )
   );
   clearScreen();
+};
+
+EQUAL_BUTTON.addEventListener('click', () => {
+  if (!isCompleteDisplay()) return;
+  evaluate();
 });

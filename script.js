@@ -43,11 +43,12 @@ const OPERATION_OBJ = {
   '%': modulo,
 };
 
-const operate = (operator, x, y) => {
-  console.log(operator);
-  return OPERATION_OBJ[operator](parseFloat(x), parseFloat(y));
-};
-
+const operate = (operator, x, y) =>
+  Math.round(
+    parseFloat(
+      OPERATION_OBJ[operator](parseFloat(x), parseFloat(y)) * 1000000000000
+    )
+  ) / 1000000000000;
 const setCalculation = () =>
   (CALCULATION.textContent = `${DISPLAY_VALUES.value1} ${DISPLAY_VALUES.operator} ${DISPLAY_VALUES.value2}`);
 
@@ -74,7 +75,7 @@ OPERATION_BUTTONS.forEach((o) => {
       evaluate();
       DISPLAY_VALUES.value1 = ANSWER.innerText;
     }
-    if (!parseInt(DISPLAY_VALUES.value1)) {
+    if (!parseFloat(DISPLAY_VALUES.value1)) {
       clearScreen();
       return;
     }
@@ -113,12 +114,18 @@ DOT_BUTTON.addEventListener('click', () => {
   setCalculation();
 });
 
+const correctFloat = (value1, value2) => {
+  const decimalCorrection =
+    value1.substr(0, value1.indexOf('.')).length +
+    value2.substr(0, value2.indexOf('.')).length;
+};
+
 const evaluate = () => {
   setAnswer(
     operate(
       DISPLAY_VALUES.operator,
-      DISPLAY_VALUES.value1,
-      DISPLAY_VALUES.value2
+      parseFloat(DISPLAY_VALUES.value1),
+      parseFloat(DISPLAY_VALUES.value2)
     )
   );
   clearScreen();

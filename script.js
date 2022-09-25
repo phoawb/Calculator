@@ -30,7 +30,10 @@ const divide = (x, y) => {
   return x / y;
 };
 
-const modulo = (x, y) => x % y;
+const modulo = (x, y) => {
+  if (y === 0) return 'L + Ratio + Illegal operation';
+  return x % y;
+};
 
 const OPERATION_OBJ = {
   '+': add,
@@ -70,6 +73,10 @@ OPERATION_BUTTONS.forEach((o) => {
     if (isCompleteDisplay()) {
       evaluate();
       DISPLAY_VALUES.value1 = ANSWER.innerText;
+    }
+    if (!parseInt(DISPLAY_VALUES.value1)) {
+      clearScreen();
+      return;
     }
     DISPLAY_VALUES.operator = o.textContent;
     setCalculation();

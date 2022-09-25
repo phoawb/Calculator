@@ -35,6 +35,7 @@ body {
 }
 
 .calculator-display {
+  display: grid;
   background-color: #0cdcca;
   border: 0.4vw solid #14726b;
   border-radius: 1vw;
@@ -43,6 +44,12 @@ body {
   margin-top: 12%;
   margin-bottom: 5%;
   box-shadow: 0 0 1.5vw inset black;
+}
+
+.calculator-display-text {
+  font-size: 2vw;
+  font-family: Nostromo;
+  color: #085a53;
 }
 
 .button-container {

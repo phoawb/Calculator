@@ -1,6 +1,6 @@
 # Calculator in the browser
 
-This is a calculator in the browser as a part of [The Odin Project](https://www.theodinproject.com).
+This is a calculator in the browser as a part of [The Odin Project](https://www.theodinproject.com). The logic is built according to The Odin Project's instruction so it might not behave as a regular calculator at all times. For more information, see the [project page](https://www.theodinproject.com/lessons/foundations-calculator).
 
 ## Roadmap
 
@@ -9,12 +9,12 @@ This is a calculator in the browser as a part of [The Odin Project](https://www.
 - [x] Click animations
 - [ ] Keyboards support
 - [ ] Keyboard animations for corresponding characters
-- [ ] Displaying numbers on the screen
-- [ ] Computational logic
-- [ ] Snarky error message
+- [x] Displaying numbers on the screen
+- [x] Computational logic
+- [x] Snarky error message
 - [ ] Handling screen overflow
-- [ ] Handing floatingpoint numbers
-- [ ] Futuristic audio
-- [ ] Able to change operation
-- [ ] Numbers shall stop when overflowing
-- [ ] Numbers shall roll across the screen
+- [x] Handing floatingpoint numbers
+- [x] Able to change operation
+- [ ] Calculation starts from top left corner of the display
+- [ ] Answer s´tarts from bottom right corner of the display
+- [ ] Calculation and answer do not displace each other

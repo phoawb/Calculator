@@ -35,12 +35,20 @@ const OPERATION_OBJ = {
   '%': modulo,
 };
 
-const operate = (operation, x, y) => {
-  return OPERATION_OBJ[operation](x, y);
+const operate = () => {
+  return OPERATION_OBJ[DISPLAY_VALUES.operator](
+    parseFloat(DISPLAY_VALUES.value1),
+    parseFloat(DISPLAY_VALUES.value2)
+  );
 };
 
-const setCalculatorDisplayValue = () =>
+const setCalculatorDisplayValue = (ans = '') =>
   (CALCULATOR_DISPLAY.textContent = `${DISPLAY_VALUES.value1} ${DISPLAY_VALUES.operator} ${DISPLAY_VALUES.value2}`);
+
+const isCompleteDisplay = () =>
+  DISPLAY_VALUES.value1 && DISPLAY_VALUES.operator && DISPLAY_VALUES.value2
+    ? true
+    : false;
 
 // Event listeners
 NUMBER_BUTTONS.forEach((n) => {
@@ -59,12 +67,14 @@ OPERATION_BUTTONS.forEach((o) => {
   });
 });
 
-AC_BUTTON.addEventListener('click', () => {
+const clearScreen = () => {
   DISPLAY_VALUES.value1 = '';
   DISPLAY_VALUES.value2 = '';
   DISPLAY_VALUES.operator = '';
   setCalculatorDisplayValue();
-});
+};
+
+AC_BUTTON.addEventListener('click', clearScreen);
 
 C_BUTTON.addEventListener('click', () => {
   if (!DISPLAY_VALUES.operator) {
@@ -82,4 +92,11 @@ DOT_BUTTON.addEventListener('click', () => {
   const value = DISPLAY_VALUES.operator ? 'value2' : 'value1';
   if (!DISPLAY_VALUES[value].includes('.')) DISPLAY_VALUES[value] += '.';
   setCalculatorDisplayValue();
+});
+
+EQUAL_BUTTON.addEventListener('click', () => {
+  if (!isCompleteDisplay()) return;
+
+  const ans = operate();
+  clearScreen();
 });

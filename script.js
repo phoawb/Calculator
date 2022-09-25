@@ -40,14 +40,11 @@ const OPERATION_OBJ = {
   '%': modulo,
 };
 
-const operate = () => {
-  return OPERATION_OBJ[DISPLAY_VALUES.operator](
-    parseFloat(DISPLAY_VALUES.value1),
-    parseFloat(DISPLAY_VALUES.value2)
-  );
+const operate = (operator, x, y) => {
+  return OPERATION_OBJ[operator](parseFloat(x), parseFloat(y));
 };
 
-const setCalculation = (ans = '') =>
+const setCalculation = () =>
   (CALCULATION.textContent = `${DISPLAY_VALUES.value1} ${DISPLAY_VALUES.operator} ${DISPLAY_VALUES.value2}`);
 
 const setAnswer = (ans) => (ANSWER.textContent = `${ans}`);
@@ -106,6 +103,12 @@ DOT_BUTTON.addEventListener('click', () => {
 
 EQUAL_BUTTON.addEventListener('click', () => {
   if (!isCompleteDisplay()) return;
-  setAnswer(operate());
+  setAnswer(
+    operate(
+      DISPLAY_VALUES.operator,
+      DISPLAY_VALUES.value1,
+      DISPLAY_VALUES.value2
+    )
+  );
   clearScreen();
 });

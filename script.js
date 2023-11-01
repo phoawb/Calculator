@@ -2,6 +2,9 @@ const DISPLAY_VALUES = {
   value1: '',
   value2: '',
   operator: '',
+  get_length: function () {
+    return this.value1.length + this.value2.length + this.operator.length;
+  },
 };
 
 //Global DOM elements
@@ -43,12 +46,18 @@ const OPERATION_OBJ = {
   '%': modulo,
 };
 
-const operate = (operator, x, y) =>
-  Math.round(
-    parseFloat(
-      OPERATION_OBJ[operator](parseFloat(x), parseFloat(y)) * 1000000000000
-    )
-  ) / 1000000000000;
+const operate = (operator, x, y) => {
+  result =
+    Math.round(
+      parseFloat(
+        OPERATION_OBJ[operator](parseFloat(x), parseFloat(y)) * 1000000000
+      )
+    ) / 1000000000;
+  if (result.toString().length > 14) {
+    result = result.toExponential(2);
+  }
+  return result;
+};
 const setCalculation = () =>
   (CALCULATION.textContent = `${DISPLAY_VALUES.value1} ${DISPLAY_VALUES.operator} ${DISPLAY_VALUES.value2}`);
 
@@ -63,6 +72,8 @@ const isCompleteDisplay = () =>
 NUMBER_BUTTONS.forEach((n) => {
   n.addEventListener('click', () => {
     const value = DISPLAY_VALUES.operator ? 'value2' : 'value1';
+    if (value === 'value1' && DISPLAY_VALUES.value1.length >= 11) return;
+    if (value === 'value2' && DISPLAY_VALUES.value2.length >= 14) return;
     DISPLAY_VALUES[value] += n.textContent;
     setCalculation();
   });

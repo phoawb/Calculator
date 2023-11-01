@@ -43,11 +43,16 @@ body {
   height: 20%;
   margin-top: 12%;
   margin-bottom: 5%;
-  box-shadow: 0 0 1.5vw inset black;
+  box-shadow: 0 0 1.3vw inset black;
+  box-sizing: border-box;
+  padding: 5px;
 }
 
 .calculator-display-text {
   font-size: 2vw;
+  /* height: 50%; */
+  /* width: 100%; */
+  grid-template-columns: 1fr;
   font-family: Nostromo;
   color: #085a53;
 }
